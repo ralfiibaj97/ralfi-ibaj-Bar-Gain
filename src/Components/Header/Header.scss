@@ -1,0 +1,94 @@
+@use "../../styles/partials/global.scss" as *;
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem;
+  background-color: #3d4e81;
+  flex-wrap: wrap;
+
+  &__logo-container {
+    display: flex;
+    align-items: center;
+  }
+
+  &__logo {
+    width: 9.5rem;
+    height: auto;
+    flex-shrink: 0;
+    padding-right: 3rem;
+  }
+
+  &__heading {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #ff5400;
+    flex-shrink: 1;
+  }
+
+  .header__search {
+    flex-grow: 1;
+    max-width: 31.25rem; 
+    position: relative;
+    margin: 0 0.4375rem; 
+
+    input {
+        width: 100%; 
+        padding: 1.25rem;
+        border-radius: 30px; 
+        border: 2px solid #3d4e81;
+        box-sizing: border-box;
+        font-size: 1.15rem;
+        cursor:crosshair;
+    }
+
+    .header__search-icon {
+        position: absolute;
+        right: 0.625rem; 
+        top: 50%;
+        transform: translateY(-50%); 
+        padding-bottom: 2rem;
+        width: 1.25rem;
+        height: 1.25rem; 
+        background-color: #3d4e81;
+        border-radius: 30px;
+        padding: .85rem;
+    }
+}
+
+&__login {
+    width: 100%; 
+    padding: 1.25rem;
+    border-radius: 30px; 
+    border: 2px solid #3d4e81;
+    font-size: 1.15rem;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease; // Add transition
+  
+    &:hover {
+      background-color: #3d4e81;
+      color: #fff;
+      cursor: pointer;
+    }
+  }
+  
+  &__signup {
+    width: 100%; 
+    padding: 1.25rem;
+    border-radius: 30px; 
+    border: 2px solid #3d4e81;
+    font-size: 1.15rem;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  
+    &:hover {
+      background-color: #F2CC8F;
+      color: #fff;
+      cursor: pointer;
+    }
+  }
+  
+  &__buttons {
+    display: flex;
+    flex-direction: row;
+  }
+}  
