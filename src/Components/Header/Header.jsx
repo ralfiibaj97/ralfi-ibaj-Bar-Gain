@@ -10,6 +10,12 @@ function Header() {
           alt=""
         />
       </div>
+      <div>
+        <button className="header__button">Add Special</button>
+      </div>
+      <div>
+        <button className="header__button">Discover Deals</button>
+      </div>
       <div className="header__search">
         <input type="text" placeholder="Enter Zip code and discover deals!" />
         <img
@@ -18,13 +24,11 @@ function Header() {
           className="header__search-icon"
         />
       </div>
-      <div className="header__buttons">
       <div>
-        <button className="header__button">LOG IN</button>
+       <img className="header__user-img" src="src/assets/icons/user.svg" alt="" />
       </div>
       <div>
-        <button className="header__button">SIGN UP</button>
-      </div>
+       <img className="header__hamburger-img" src="src/assets/icons/hamburger.svg" alt="" />
       </div>
 
     </header>

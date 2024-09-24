@@ -70,6 +70,15 @@
           }
     }
 }
+&__user-img {
+    width: 3rem;
+    height: auto;
+    background-color: #3d4e81; 
+}
+&__hamburger-img {
+    width: 2rem;
+    height: auto;
+}
 &__button {
     @include button-design;
 }
