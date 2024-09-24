@@ -10,15 +10,6 @@ function Header() {
           alt=""
         />
       </div>
-      <div>
-        <button>Add Special</button>
-      </div>
-      <div>
-        <button>Discover Deals</button>
-      </div>
-      <div>
-        <button>ABOUT</button>
-      </div>
       <div className="header__search">
         <input type="text" placeholder="Enter Zip code and discover deals!" />
         <img
@@ -29,10 +20,10 @@ function Header() {
       </div>
       <div className="header__buttons">
       <div>
-        <button className="header__login">LOG IN</button>
+        <button className="header__button">LOG IN</button>
       </div>
       <div>
-        <button className="header__signup">SIGN UP</button>
+        <button className="header__button">SIGN UP</button>
       </div>
       </div>
 

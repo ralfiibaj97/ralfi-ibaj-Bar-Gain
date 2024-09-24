@@ -1,4 +1,5 @@
 @use "../../styles/partials/global.scss" as *;
+@use "../../styles/partials/mixins.scss" as *;
 
 .header {
   display: flex;
@@ -6,7 +7,8 @@
   align-items: center;
   padding: 2rem;
   background-color: #3d4e81;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
 
   &__logo-container {
     display: flex;
@@ -17,7 +19,11 @@
     width: 9.5rem;
     height: auto;
     flex-shrink: 0;
-    padding-right: 3rem;
+    &:hover {
+        background-color: #F2CC8F;
+        color: #fff;
+        cursor: pointer;
+      }
   }
 
   &__heading {
@@ -32,6 +38,7 @@
     max-width: 31.25rem; 
     position: relative;
     margin: 0 0.4375rem; 
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
 
     input {
         width: 100%; 
@@ -40,7 +47,8 @@
         border: 2px solid #3d4e81;
         box-sizing: border-box;
         font-size: 1.15rem;
-        cursor:crosshair;
+        box-shadow: 5px 5px 5px;
+        cursor: pointer;
     }
 
     .header__search-icon {
@@ -54,41 +62,21 @@
         background-color: #3d4e81;
         border-radius: 30px;
         padding: .85rem;
+
+        &:hover {
+            background-color: black;
+            color: #fff;
+            cursor: pointer;
+          }
     }
 }
-
-&__login {
-    width: 100%; 
-    padding: 1.25rem;
-    border-radius: 30px; 
-    border: 2px solid #3d4e81;
-    font-size: 1.15rem;
-    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease; // Add transition
-  
-    &:hover {
-      background-color: #3d4e81;
-      color: #fff;
-      cursor: pointer;
-    }
-  }
-  
-  &__signup {
-    width: 100%; 
-    padding: 1.25rem;
-    border-radius: 30px; 
-    border: 2px solid #3d4e81;
-    font-size: 1.15rem;
-    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
-  
-    &:hover {
-      background-color: #F2CC8F;
-      color: #fff;
-      cursor: pointer;
-    }
-  }
+&__button {
+    @include button-design;
+}
   
   &__buttons {
     display: flex;
     flex-direction: row;
+    gap: 1rem;
   }
 }  
