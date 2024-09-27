@@ -1,5 +1,6 @@
 @use "../../styles/partials/global.scss" as *;
 @use "../../styles/partials/mixins.scss" as *;
+@use "../../styles/partials/variables.scss" as *;
 
 .header {
   display: flex;
@@ -81,6 +82,8 @@
 }
 &__button {
     @include button-design;
+    color: white;
+    background-color: $charcole;
 }
   
   &__buttons {
