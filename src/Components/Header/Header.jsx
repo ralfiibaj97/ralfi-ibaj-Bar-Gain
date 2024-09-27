@@ -1,6 +1,13 @@
+import { useNavigate } from 'react-router-dom';
 import "./Header.scss";
 
 function Header() {
+  const navigate = useNavigate();
+
+  const handleAddNewBarClick = () => {
+    navigate('/add-bar');
+  };
+
   return (
     <header className="header">
       <div className="header__logo-container">
@@ -19,9 +26,10 @@ function Header() {
         />
       </div>
       <div>
-        <button className="header__button"> + ADD NEW BAR </button>
+        <button className="header__button" onClick={handleAddNewBarClick}> 
+          + ADD NEW BAR 
+        </button>
       </div>
-
     </header>
   );
 }
