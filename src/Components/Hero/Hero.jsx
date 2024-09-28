@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import './Hero.scss';
+import { Link } from 'react-router-dom';
 
 function Hero() {
     const [bars, setBars] = useState([]);
@@ -39,8 +40,6 @@ function Hero() {
         }
     };
 
-    console.log(bars); // For debugging
-
     return (
         <div className="hero">
             <h1 className="hero__title">Welcome to BarGain</h1>
@@ -53,15 +52,16 @@ function Hero() {
                 itemClass="carousel-item-padding-180-px"
             >
                 {bars.map(bar => (
-                    <div key={bar.name}>
-                        <img src={bar.image_url} alt={bar.name} />
-                        <p className="legend">
-                            NAME: {bar.name}
-                            <br />
-                            <br />
-                            LOCATION: {bar.address}
-                        </p>
-                    </div>
+                    <Link to={`/bars/${bar.id}`} key={bar.id}>
+                        <div>
+                            <img src={bar.image_url} alt={bar.name} />
+                            <p className="legend">
+                                NAME: {bar.name}
+                                <br />
+                                LOCATION: {bar.address}
+                            </p>
+                        </div>
+                    </Link>
                 ))}
             </Carousel>
         </div>
