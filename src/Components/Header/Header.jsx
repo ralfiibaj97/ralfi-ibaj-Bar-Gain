@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';  // Import Link from react-router-dom
 import './Header.scss';
 
 function Header() {
@@ -13,7 +13,9 @@ function Header() {
   return (
     <header className="header">
       <div className="header__logo-container">
-        <img className="header__logo" src="src/assets/logo/BarGain.png" alt="BarGain Logo" />
+        <Link to="/">
+          <img className="header__logo" src="src/assets/logo/BarGain.png" alt="BarGain Logo" />
+        </Link>
       </div>
       <div className="header__search">
         <input
@@ -34,9 +36,11 @@ function Header() {
           onClick={handleSearch}
         />
       </div>
+      <div>
       <button className="header__button" onClick={() => navigate('/add-bar')}>
         + ADD NEW BAR
       </button>
+      </div>
     </header>
   );
 }

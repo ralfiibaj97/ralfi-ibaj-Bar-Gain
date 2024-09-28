@@ -1,49 +1,57 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useParams, Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+import "./BarDetails.scss";
 
 const BarDetails = () => {
   const { barId } = useParams();
   const [bar, setBar] = useState(null);
-  const [happyHours, setHappyHours] = useState(null);
+  const [happyHours, setHappyHours] = useState([]);
 
   useEffect(() => {
-    const fetchBar = async () => {
+    const getBarDetails = async () => {
       try {
         const response = await axios.get(`http://localhost:8080/bars/${barId}`);
-        setBar(response.data);
+        setBar(response.data.bar);
         setHappyHours(response.data.happyHours);
       } catch (error) {
-        console.error("Failed to fetch bar details:", error);
+        console.error("Failed to receive bar details:", error);
       }
     };
 
-    fetchBar();
+    getBarDetails();
   }, [barId]);
 
+  if (bar === null) {
+    return <div>Loading...</div>;
+  }
+
   return (
-    <div className="bar-details">
-      {bar ? (
-        <>
-          <h1>{bar.name}</h1>
-          <p>{bar.address}</p>
-          {happyHours ? (
-            <div>
-              <h2>Happy Hours</h2>
-              <p>Start Time: {happyHours.start_time}</p>
-              <p>End Time: {happyHours.end_time}</p>
-              <p>Description: {happyHours.description}</p>
+    <section className="bar-details">
+      <div className="bar-details__container">
+        <div className="bar-details__heading">
+          <h1 className="bar-details__title">{bar.name}</h1>
+          <p className="bar-details__address">{bar.address}</p>
+          <img
+            className="bar-details__image"
+            src={bar.image_url}
+            alt={`${bar.name} Image`}
+          />
+        </div>
+
+        <div className="bar-details__info">
+          <h2 className="bar-details__info-title">Happy Hours</h2>
+
+          {happyHours.map((happyHour) => (
+            <div key={happyHour.id} className="bar-details__happyhour">
+              <p>Start Time: {happyHour.start_time}</p>
+              <p>End Time:{happyHour.end_time}</p>
+              <p>Description: {happyHour.description}</p>
             </div>
-          ) : (
-            <Link to={`/bars/${barId}/add-happy-hour`}>
-              <button>+ Add Happy Hour</button>
-            </Link>
-          )}
-        </>
-      ) : (
-        <p>Loading...</p>
-      )}
-    </div>
+          ))}
+        </div>
+      </div>
+    </section>
   );
 };
 

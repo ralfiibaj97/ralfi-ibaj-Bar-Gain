@@ -9,7 +9,6 @@
   padding: 2rem;
   background-color: #3d4e81;
   flex-wrap: nowrap;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
 
   &__logo-container {
     display: flex;
@@ -36,10 +35,8 @@
 
   .header__search {
     flex-grow: 1;
-    max-width: 31.25rem; 
+    max-width: 50rem; 
     position: relative;
-    margin: 0 0.4375rem; 
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
 
     input {
         width: 100%; 
@@ -70,15 +67,6 @@
             cursor: pointer;
           }
     }
-}
-&__user-img {
-    width: 3rem;
-    height: auto;
-    background-color: #3d4e81; 
-}
-&__hamburger-img {
-    width: 2rem;
-    height: auto;
 }
 &__button {
     @include button-design;

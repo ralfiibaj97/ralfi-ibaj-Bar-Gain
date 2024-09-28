@@ -1,55 +1,86 @@
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
+import "./AddHappyHourForm.scss";
 
 const AddHappyHourForm = () => {
   const navigate = useNavigate();
-  const { barId } = useParams();
+  const { barId } = useParams(); 
+  const [formData, setFormData] = useState({
+    start_time: "",
+    end_time: "",
+    description: "",
+  });
 
-  const handleSubmit = async (e) => {
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmitHappyHour = async (e) => {
     e.preventDefault();
 
-    const start_time = e.target.start_time.value;
-    const end_time = e.target.end_time.value;
-    const description = e.target.description.value;
+    if (!formData.start_time || !formData.end_time || !formData.description) {
+      alert("Please fill in all the fields.");
+      return;
+    }
 
     try {
-      const res = await axios.post(`http://localhost:8080/bars/${barId}/happy-hours`, {
-        start_time,
-        end_time,
-        description
-      });
-
-      if (res.status === 201) {
-        alert("Happy Hour added successfully!");
-        navigate(`/bars/${barId}`);
-      }
+      await axios.post(`http://localhost:8080/happyhours/${barId}`, formData);
+      alert("Happy Hour added successfully!");
+      navigate(`/bars/${barId}`);
     } catch (error) {
-      alert("Error adding happy hour. Please check the inputs and try again.");
-    }
+      console.error("Error while adding happy hour:", error.message);    }
   };
 
   return (
-    <section className="bar-form">
-      <div className="bar-form__header">
-        <h1 className="bar-form__title">Add New Happy Hour</h1>
+    <section className="happyhour-form">
+      <div className="happyhour-form__header">
+        <h1 className="happyhour-form__title">Add New Happy Hour</h1>
       </div>
-      <form onSubmit={handleSubmit} className="bar-form__body">
-        <div className="bar-form__section">
-          <div className="bar-form__field">
-            <label className="bar-form__label">Start Time</label>
-            <input type="text" name="start_time" placeholder="Start Time" className="bar-form__input" />
+
+      <form onSubmit={handleSubmitHappyHour} className="happyhour-form__body">
+        <div className="happyhour-form__section">
+          <div className="happyhour-form__field">
+            <label className="happyhour-form__label">Start Time</label>
+            <input
+              type="text"
+              name="start_time"
+              placeholder="Start Time"
+              className="happyhour-form__input"
+              value={formData.start_time}
+              onChange={handleInputChange}
+            />
           </div>
-          <div className="bar-form__field">
-            <label className="bar-form__label">End Time</label>
-            <input type="text" name="end_time" placeholder="End Time" className="bar-form__input" />
+          <div className="happyhour-form__field">
+            <label className="happyhour-form__label">End Time</label>
+            <input
+              type="text"
+              name="end_time"
+              placeholder="End Time"
+              className="happyhour-form__input"
+              value={formData.end_time}
+              onChange={handleInputChange}
+            />
           </div>
-          <div className="bar-form__field">
-            <label className="bar-form__label">Description</label>
-            <input type="text" name="description" placeholder="Description" className="bar-form__input" />
+          <div className="happyhour-form__field">
+            <label className="happyhour-form__label">Description</label>
+            <input
+              type="text"
+              name="description"
+              placeholder="Description"
+              className="happyhour-form__input"
+              value={formData.description}
+              onChange={handleInputChange}
+            />
           </div>
         </div>
-        <div className="bar-form__actions">
-          <button type="submit" className="bar-form__button bar-form__button--add">+ Add Happy Hour</button>
+        <div className="happyhour-form__actions">
+          <button type="submit" className="happyhour-form__button happyhour-form__button--add">
+            + Add Happy Hour
+          </button>
         </div>
       </form>
     </section>
