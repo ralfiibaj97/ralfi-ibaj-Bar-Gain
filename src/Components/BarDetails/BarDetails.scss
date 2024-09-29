@@ -1,4 +1,4 @@
-@use "../../styles/partials/variables" as *; 
+@use "../../styles/partials/variables" as *;
 
 .bar-details {
   background-color: $moonlight-white;
@@ -7,60 +7,65 @@
   display: flex;
   justify-content: center;
   align-items: center;
-}
 
-.bar-details__container {
-  background-color: $white;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-  padding: 2rem;
-  text-align: center;
-}
+  &__container {
+    background-color: $white;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    padding: 2rem;
+    text-align: center;
+  }
 
-.bar-details__heading {
-  margin-bottom: 2rem;
-}
+  &__heading {
+    margin-bottom: 2rem;
+  }
 
-.bar-details__title {
-  font-size: 2.5rem;
-  color: $dusk-blue;
-  margin-bottom: 0.5rem;
-}
+  &__title {
+    font-size: 3rem;
+    color: $dusk-blue;
+    margin-bottom: 0.5rem;
+  }
 
-.bar-details__address {
-  font-size: 1.2rem;
-  color: $slate-gray;
-  margin-bottom: 1.5rem;
-}
+  &__address {
+    font-size: 1.35rem;
+    color: $slate-gray;
+    margin-bottom: 1.5rem;
+  }
 
-.bar-details__image {
-  width: 100%;
-  height: auto;
-  max-height: 25rem;
-  object-fit: cover;
-  border-radius: 8px;
-  margin-bottom: 2rem;
-}
+  &__image {
+    width: 100%;
+    height: auto;
+    max-height: 25rem;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+  }
 
-.bar-details__info {
-  background-color: $moonlight-white;
-  padding: 2rem;
-  border-radius: 8px;
-  text-align: left;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-}
+  &__info {
+    background-color: $moonlight-white;
+    padding: 2rem;
+    border-radius: 8px;
+    text-align: left;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    font-size: 1.40rem;
+    text-align: center;
+    white-space: pre-line;
+    color: $charcole;
+  }
 
-.bar-details__info-title {
-  font-size: 2rem;
-  color: $evening-purple;
-  margin-bottom: 1.5rem;
-}
+  &__info-title {
+    font-size: 2.15rem;
+    color: $evening-purple;
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
 
-.bar-details__happyhour {
-  background-color: $light-gold;
-  padding: 1rem 1.5rem;
-  border-radius: 8px;
-  margin-bottom: 1.5rem;
-  border: 1px solid $urban-gray;
+  &__happyhour {
+    background-color: $warm-amber;
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    border: 1px solid $urban-gray;
+  }
 }
