@@ -1,6 +1,6 @@
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
-import "./DeleteModal.css";
+import "./DeleteModal.scss";
 
 const deleteModal = ({ barName, onClose }) => {
     const { barID } = useParams();
