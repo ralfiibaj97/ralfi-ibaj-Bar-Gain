@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import DeleteModal from "../DeleteBarModal/DeleteModal";
 
 import "./BarDetails.scss";
 
@@ -8,6 +9,7 @@ const BarDetails = () => {
   const { barId } = useParams();
   const [bar, setBar] = useState(null);
   const [happyHours, setHappyHours] = useState([]);
+  const [showDeleteModal, setShowDeleteModal] = useState(false); 
 
   useEffect(() => {
     const getBarDetails = async () => {
@@ -26,6 +28,14 @@ const BarDetails = () => {
   if (bar === null) {
     return <div>Loading...</div>;
   }
+
+  const openDeleteModal = () => {
+    setShowDeleteModal(true);  
+  };
+
+  const closeDeleteModal = () => {
+    setShowDeleteModal(false);  
+  };
 
   return (
     <section className="bar-details">
@@ -52,6 +62,15 @@ const BarDetails = () => {
           ))}
         </div>
       </div>
+
+      <button className="bar-details__delete-button" onClick={openDeleteModal}>
+          Delete Bar
+        </button>
+
+        {showDeleteModal && (
+          <DeleteModal onClose={closeDeleteModal} />
+        )}
+
     </section>
   );
 };

@@ -1,4 +1,5 @@
 import axios from "axios";
+import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import "./AddHappyHourForm.scss";
 
@@ -67,13 +68,13 @@ const AddHappyHourForm = () => {
           </div>
           <div className="happyhour-form__field">
             <label className="happyhour-form__label">Description</label>
-            <input
-              type="text"
+            <textarea
               name="description"
-              placeholder="Description"
-              className="happyhour-form__input"
+              placeholder="Enter the special details of the happy hour here! (Shift + Enter for new line)"
+              className="happyhour-form__textarea"
               value={formData.description}
               onChange={handleInputChange}
+              rows="5"
             />
           </div>
         </div>
