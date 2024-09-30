@@ -1,12 +1,14 @@
 @use "../../styles/partials/variables" as *;
 
 .bar-details {
-  background-color: $moonlight-white;
+  background-color: $light-gold;
   padding: 2rem;
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  display: flex;
+  flex-direction: column;
 
   &__container {
     background-color: $white;
@@ -48,7 +50,7 @@
     border-radius: 8px;
     text-align: left;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-    font-size: 1.40rem;
+    font-size: 1.4rem;
     text-align: center;
     white-space: pre-line;
     color: $charcole;
@@ -67,5 +69,17 @@
     border-radius: 8px;
     margin-bottom: 1.5rem;
     border: 1px solid $urban-gray;
+  }
+
+  &__delete-button {
+    margin-top: 1.5rem;
+    padding: 1.25rem 1.75rem;
+    font-size: 1.5rem;  
+    border-radius: 10px;
+    border-color: $slate-gray;
+    background-color: $silent-coral;
+    border: none;
+    color: $charcole;
+    cursor: pointer;
   }
 }

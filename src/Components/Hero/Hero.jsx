@@ -47,8 +47,8 @@ function Hero() {
 
   return (
     <div className="hero">
-      <h1 className="hero__title">Welcome to BarGain</h1>
-      <h2 className="hero__description">Draw Inspiration Below!</h2>
+      <h1 className="hero__title">Welcome to BarGain!</h1>
+      <h2 className="hero__description">Draw Inspiration Below</h2>
       <Carousel
         responsive={responsive}
         infinite={true}

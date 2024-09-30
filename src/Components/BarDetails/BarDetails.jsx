@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import "./BarDetails.scss";
+import DeleteModal from "../DeleteBarModal/DeleteModal";
 
 const BarDetails = () => {
   const { barId } = useParams();
