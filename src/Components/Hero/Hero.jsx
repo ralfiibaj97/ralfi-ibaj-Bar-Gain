@@ -29,7 +29,7 @@ function Hero() {
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
       items: 3,
-      slidesToSlide: 3,
+      slidesToSlide: 1,
     },
     tablet: {
       breakpoint: { max: 1024, min: 464 },
@@ -50,16 +50,26 @@ function Hero() {
       <h1 className="hero__title">Welcome to BarGain!</h1>
       <h2 className="hero__description">Draw Inspiration Below</h2>
       <Carousel
-        responsive={responsive}
-        infinite={true}
-        showDots={true}
-        className="hero__carousel"
-        itemClass="carousel-item-padding-180-px"
-        centerMode={false}
-        partialVisible={false}
+      responsive={responsive}
+      infinite={true}
+      showDots={true}
+      className="hero__carousel"
+      itemClass="carousel-item-padding-180-px"
+      centerMode={false}
+      partialVisible={false} 
+      keyBoardControl={true}
+      containerClass="carousel-container"
       >
         {bars.map((bar) => (
-          <Link to={`/bars/${bar.id}`} key={bar.id}>
+          <Link
+            to={`/bars/${bar.id}`}
+            key={bar.id}
+            style={{
+              textDecoration: "none",
+              color: "inherit",
+              outline: "none",
+            }}
+          >
             <div>
               <img src={bar.image_url} alt={bar.name} />
               <p className="legend">

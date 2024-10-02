@@ -2,6 +2,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "./AddBarForm.scss";
 
+
 const AddBarForm = () => {
   const navigate = useNavigate();
 

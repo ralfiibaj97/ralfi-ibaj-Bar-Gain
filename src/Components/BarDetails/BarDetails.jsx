@@ -67,7 +67,7 @@ const BarDetails = () => {
         </button>
 
         {showDeleteModal && (
-          <DeleteModal onClose={closeDeleteModal} />
+          <DeleteModal onClose={closeDeleteModal} barId={barId} />
         )}
 
     </section>
